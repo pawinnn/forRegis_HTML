@@ -111,7 +111,7 @@
       background: var(--primary);
     }
 
-    /* Decorative circles */
+    /* Decorative circles 
 
     .form-card::after {
       content: "";
@@ -128,6 +128,36 @@
       top: -90px;
 
       z-index: 0;
+    }
+    */
+
+    /* =========================
+   DECORATIVE TOOTH
+========================== */
+
+    .tooth-decoration {
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    top: -45px;
+    right: -35px;
+
+    color: #560BAD;
+
+    opacity: 0.07;
+
+    transform: rotate(12deg);
+
+    pointer-events: none;
+
+    z-index: 0;
+    }
+
+    .tooth-decoration svg {
+    width: 100%;
+    height: 100%;
     }
 
     .card-content {
@@ -473,7 +503,34 @@
 
       <!-- FORM CARD -->
       <section class="form-card">
+      <!-- รูปฟันตกแต่งมุมขวาบน -->
+        <div class="tooth-decoration">
+            <svg
+            viewBox="0 0 200 200"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="
+                M100 38
+                C78 20 45 20 31 46
+                C15 75 30 105 42 126
+                C53 146 56 178 69 180
+                C83 182 84 142 100 130
+                C116 142 117 182 131 180
+                C144 178 147 146 158 126
+                C170 105 185 75 169 46
+                C155 20 122 20 100 38
+                Z
+                "
+                fill="none"
+                stroke="currentColor"
+                stroke-width="8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+            </svg>
+        </div>
 
+        
         <div class="card-content">
 
           <div class="header">
