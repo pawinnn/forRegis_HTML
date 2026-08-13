@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dentistry KMITL Registration</title>
+
+  <style>
+    :root {
+      --primary: #560BAD;
+      --white: #ffffff;
+      --soft-purple: #f6f0fc;
+      --text: #2b163e;
+      --border: #e3d5f2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(255,255,255,0.14),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at bottom right,
+          rgba(255,255,255,0.10),
+          transparent 30%
+        ),
+        var(--primary);
+
+      color: var(--text);
+    }
+
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 20px;
+    }
+
+    .main-container {
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    /* =========================
+       LOGO AREA
+    ========================== */
+
+    .logo-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 45px;
+      margin-bottom: 35px;
+      flex-wrap: wrap;
+    }
+
+    .logo-dentistry {
+      width: 320px;
+      max-width: 45vw;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .logo-expo {
+      width: 330px;
+      max-width: 45vw;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* =========================
+       CARD
+    ========================== */
+
+    .form-card {
+      position: relative;
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+
+      background: rgba(255,255,255,0.98);
+      border-radius: 30px;
+
+      padding: 55px 60px 50px;
+
+      box-shadow:
+        0 30px 80px rgba(34, 0, 74, 0.35);
+
+      overflow: hidden;
+    }
+
+    .form-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+
+      background: var(--primary);
+    }
+
+    /* Decorative circles */
+
+    .form-card::after {
+      content: "";
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      border-radius: 50%;
+
+      background: var(--soft-purple);
+
+      right: -90px;
+      top: -90px;
+
+      z-index: 0;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    .header {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--soft-purple);
+      color: var(--primary);
+
+      padding: 9px 18px;
+      border-radius: 999px;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      margin-bottom: 18px;
+    }
+
+    .header h1 {
+      margin: 0;
+
+      color: var(--primary);
+
+      font-size: 34px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .header p {
+      margin: 12px 0 0;
+
+      color: #705b80;
+
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       FORM
+    ========================== */
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 9px;
+
+      font-size: 15px;
+      font-weight: 700;
+
+      color: var(--primary);
+    }
+
+    .required {
+      color: var(--primary);
+    }
+
+    .form-control {
+      width: 100%;
+      height: 60px;
+
+      padding: 0 18px;
+
+      border: 2px solid var(--border);
+      border-radius: 15px;
+
+      background: var(--white);
+      color: var(--text);
+
+      font-size: 17px;
+
+      outline: none;
+
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .form-control::placeholder {
+      color: #aa9db4;
+    }
+
+    .form-control:hover {
+      border-color: #c6a8e5;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+
+      box-shadow:
+        0 0 0 4px rgba(86, 11, 173, 0.10);
+
+      transform: translateY(-1px);
+    }
+
+    select.form-control {
+      cursor: pointer;
+      appearance: none;
+
+      background-image:
+        linear-gradient(
+          45deg,
+          transparent 50%,
+          var(--primary) 50%
+        ),
+        linear-gradient(
+          135deg,
+          var(--primary) 50%,
+          transparent 50%
+        );
+
+      background-position:
+        calc(100% - 20px) 26px,
+        calc(100% - 14px) 26px;
+
+      background-size:
+        6px 6px,
+        6px 6px;
+
+      background-repeat: no-repeat;
+    }
+
+    /* =========================
+       BUTTON
+    ========================== */
+
+    .button-wrapper {
+      margin-top: 38px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      height: 62px;
+
+      border: 2px solid var(--primary);
+      border-radius: 16px;
+
+      background: var(--primary);
+      color: var(--white);
+
+      font-size: 17px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      background: var(--white);
+      color: var(--primary);
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 14px 28px rgba(86, 11, 173, 0.20);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* =========================
+       MESSAGE
+    ========================== */
+
+    .message {
+      display: none;
+
+      margin-top: 22px;
+
+      padding: 14px 18px;
+
+      border-radius: 12px;
+
+      text-align: center;
+
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .message.success {
+      display: block;
+
+      background: var(--soft-purple);
+      color: var(--primary);
+
+      border: 1px solid var(--border);
+    }
+
+    .message.error {
+      display: block;
+
+      background: #fff5f5;
+      color: #b42318;
+
+      border: 1px solid #f4cccc;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .footer {
+      margin-top: 35px;
+      text-align: center;
+
+      color: #8b7998;
+
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 768px) {
+
+      .page-wrapper {
+        padding: 30px 16px;
+      }
+
+      .logo-area {
+        gap: 22px;
+        margin-bottom: 25px;
+      }
+
+      .logo-dentistry {
+        width: 250px;
+        max-width: 80%;
+      }
+
+      .logo-expo {
+        width: 250px;
+        max-width: 80%;
+      }
+
+      .form-card {
+        padding: 45px 25px 35px;
+        border-radius: 24px;
+      }
+
+      .header h1 {
+        font-size: 28px;
+      }
+
+      .header p {
+        font-size: 15px;
+      }
+
+      .form-control {
+        height: 56px;
+        font-size: 16px;
+      }
+
+      .submit-btn {
+        height: 58px;
+      }
+    }
+
+
+    @media (max-width: 480px) {
+
+      .logo-area {
+        flex-direction: column;
+      }
+
+      .logo-dentistry,
+      .logo-expo {
+        width: 260px;
+        max-width: 90%;
+      }
+
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .form-card {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="page-wrapper">
+
+    <main class="main-container">
+
+      <!-- LOGOS -->
+      <div class="logo-area">
+
+        <img
+          src="DENTISTRY_main_logo_white.png"
+          alt="School of Dentistry KMITL"
+          class="logo-dentistry"
+        />
+
+        <img
+          src="expo_logo.png"
+          alt="KMITL Expo 2026"
+          class="logo-expo"
+        />
+
+      </div>
+
+
+      <!-- FORM CARD -->
+      <section class="form-card">
+
+        <div class="card-content">
+
+          <div class="header">
+
+            <div class="header-badge">
+              Registration
+            </div>
+
+            <h1>
+              ลงทะเบียน
+            </h1>
+
+            <p>
+              กรุณากรอกข้อมูลให้ครบถ้วน
+              เพื่อใช้สำหรับการลงทะเบียน
+            </p>
+
+          </div>
+
+
+          <form id="registrationForm">
+
+            <!-- PREFIX -->
+            <div class="form-group">
+
+              <label for="prefix">
+                คำนำหน้า
+                <span class="required">*</span>
+              </label>
+
+              <select
+                id="prefix"
+                class="form-control"
+                required
+              >
+
+                <option value="">
+                  เลือกคำนำหน้า
+                </option>
+
+                <option value="นาย">
+                  นาย
+                </option>
+
+                <option value="นาง">
+                  นาง
+                </option>
+
+                <option value="นางสาว">
+                  นางสาว
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- FIRST NAME -->
+            <div class="form-group">
+
+              <label for="firstname">
+                ชื่อ
+                <span class="required">*</span>
+              </label>
+
+              <input
+                type="text"
+                id="firstname"
+                class="form-control"
+                placeholder="กรอกชื่อ"
+                autocomplete="given-name"
+                required
+              />
+
+            </div>
+
+
+            <!-- LAST NAME -->
+            <div class="form-group">
+
+              <label for="lastname">
+                นามสกุล
+                <span class="required">*</span>
+              </label>
+
+              <input
+                type="text"
+                id="lastname"
+                class="form-control"
+                placeholder="กรอกนามสกุล"
+                autocomplete="family-name"
+                required
+              />
+
+            </div>
+
+
+            <!-- BUTTON -->
+            <div class="button-wrapper">
+
+              <button
+                type="submit"
+                id="submitBtn"
+                class="submit-btn"
+              >
+                ส่งข้อมูล
+              </button>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+            <div
+              id="message"
+              class="message"
+            ></div>
+
+
+            <div class="footer">
+              School of Dentistry, KMITL
+              <br>
+              KMITL Expo 2026
+            </div>
+
+          </form>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <script>
+
+    /*
+    ==========================================
+    ใส่ URL ของ Google Apps Script ตรงนี้
+    ==========================================
+    */
+
+    const SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbzTAJsZADy0CaIZySz2kOs-oylToc5Wj061MXsRd5B-uSQS4Aa0p-jZWpS4GRnxP2mM/exec";
+
+
+    const form =
+      document.getElementById("registrationForm");
+
+    const submitBtn =
+      document.getElementById("submitBtn");
+
+    const message =
+      document.getElementById("message");
+
+
+    form.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+
+        /*
+        ===============================
+        GET DATA
+        ===============================
+        */
+
+        const prefix =
+          document.getElementById("prefix").value;
+
+        const firstname =
+          document
+            .getElementById("firstname")
+            .value
+            .trim();
+
+        const lastname =
+          document
+            .getElementById("lastname")
+            .value
+            .trim();
+
+
+        /*
+        ===============================
+        VALIDATION
+        ===============================
+        */
+
+        if (
+          !prefix ||
+          !firstname ||
+          !lastname
+        ) {
+
+          showMessage(
+            "กรุณากรอกข้อมูลให้ครบถ้วน",
+            "error"
+          );
+
+          return;
+        }
+
+
+        /*
+        ===============================
+        BUTTON LOADING
+        ===============================
+        */
+
+        submitBtn.disabled = true;
+
+        submitBtn.innerText =
+          "กำลังบันทึกข้อมูล...";
+
+
+        message.className = "message";
+
+        message.innerText = "";
+
+
+        /*
+        ===============================
+        PREPARE DATA
+        ===============================
+        */
+
+        const data = {
+
+          prefix: prefix,
+
+          firstname: firstname,
+
+          lastname: lastname
+
+        };
+
+
+        /*
+        ===============================
+        SEND TO GOOGLE SHEET
+        ===============================
+        */
+
+        try {
+
+          await fetch(
+            SCRIPT_URL,
+            {
+
+              method: "POST",
+
+              mode: "no-cors",
+
+              headers: {
+
+                "Content-Type":
+                  "text/plain"
+
+              },
+
+              body:
+                JSON.stringify(data)
+
+            }
+          );
+
+
+          /*
+          ===============================
+          SUCCESS
+          ===============================
+          */
+
+          showMessage(
+            "บันทึกข้อมูลเรียบร้อยแล้ว ✓",
+            "success"
+          );
+
+
+          form.reset();
+
+
+        } catch (error) {
+
+
+          /*
+          ===============================
+          ERROR
+          ===============================
+          */
+
+          console.error(error);
+
+
+          showMessage(
+            "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง",
+            "error"
+          );
+
+
+        } finally {
+
+
+          /*
+          ===============================
+          RESET BUTTON
+          ===============================
+          */
+
+          submitBtn.disabled = false;
+
+          submitBtn.innerText =
+            "ส่งข้อมูล";
+
+        }
+
+      }
+    );
+
+
+    /*
+    ==========================================
+    MESSAGE FUNCTION
+    ==========================================
+    */
+
+    function showMessage(
+      text,
+      type
+    ) {
+
+      message.innerText = text;
+
+      message.className =
+        "message " + type;
+
+    }
+
+  </script>
+
+
+</body>
+</html>
